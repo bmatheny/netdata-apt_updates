@@ -52,5 +52,6 @@ class Service(ExecutableService):
             return None
         # Return only the number of updates
         update_count = re.search("\\d+", nr_updates).group()
-        updates = {'apt_updates': int(update_count)}
+        updates = {'apt_updates': str(update_count)}
+        self.debug("Found update count '{0}' in text '{1}'".format(update_count, update_line[0]))
         return updates
